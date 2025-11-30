@@ -2,9 +2,6 @@
 
 import { z } from 'zod'
 
-// Note: if you edit the schema here, you must also edit the schema in the
-// apps/v4/public/schema/registry-item.json file.
-
 export const registryItemTypeSchema = z.enum([
   'registry:lib',
   'registry:block',
@@ -189,10 +186,6 @@ export const configSchema = rawConfigSchema.extend({
     ui: z.string(),
   }),
 })
-
-// TODO: type the key.
-// Okay for now since I don't want a breaking change.
-export const workspaceConfigSchema = z.record(configSchema)
 
 export const searchResultItemSchema = z.object({
   name: z.string(),

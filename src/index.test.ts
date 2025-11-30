@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import z from 'zod'
 
 import { registryConfigSchema } from './index'
 
@@ -27,9 +28,8 @@ describe('registryConfigSchema', () => {
     const result = registryConfigSchema.safeParse(invalidConfig)
     expect(result.success).toBe(false)
     if (!result.success) {
-      expect(result.error.errors[0].message).toContain(
-        'Registry names must start with @',
-      )
+      const message = JSON.stringify(z.treeifyError(result.error), null, 2)
+      expect(message).toContain('Registry names must start with @')
     }
   })
 
@@ -41,9 +41,8 @@ describe('registryConfigSchema', () => {
     const result = registryConfigSchema.safeParse(invalidConfig)
     expect(result.success).toBe(false)
     if (!result.success) {
-      expect(result.error.errors[0].message).toContain(
-        'Registry URL must include {name} placeholder',
-      )
+      const message = JSON.stringify(z.treeifyError(result.error), null, 2)
+      expect(message).toContain('Registry URL must include {name} placeholder')
     }
   })
 })
