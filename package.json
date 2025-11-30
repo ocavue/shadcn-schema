@@ -1,7 +1,7 @@
 {
   "name": "shadcn-schema",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "packageManager": "pnpm@10.23.0",
   "description": "TypeScript starter kit",
   "author": "ocavue <ocavue@gmail.com>",
