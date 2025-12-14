@@ -4,7 +4,7 @@
 
 A reusable schema for the [Shadcn registry](https://ui.shadcn.com/docs/registry/registry-json).
 
-It exports the same API as `shadcn/schema`, but is based on `zod` v4 instead of `zod` v3.
+It exports the same API as [`shadcn/schema`](https://doc.deno.land/https://esm.sh/shadcn/schema), but is based on `zod` v4 instead of `zod` v3.
 
 ## License
 
