@@ -48,10 +48,10 @@
     "zod": "^4.1.13"
   },
   "devDependencies": {
-    "@ocavue/eslint-config": "^3.6.3",
+    "@ocavue/eslint-config": "^4.2.0",
     "@ocavue/tsconfig": "^0.6.1",
     "@types/node": "^20.19.10",
-    "eslint": "^9.39.1",
+    "eslint": "^10.0.2",
     "prettier": "^3.6.2",
     "tsdown": "^0.16.7",
     "typescript": "^5.9.3",
