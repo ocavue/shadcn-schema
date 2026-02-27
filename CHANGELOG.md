@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/ocavue/shadcn-schema/compare/v0.2.0...v0.3.0) (2026-02-27)
+
+
+### Features
+
+* sync schemas with `shadcn@3.8.5` ([db9adeb](https://github.com/ocavue/shadcn-schema/commit/db9adebf7ab4b64357b4ac7ac63a0781b213c10b))
+
 ## [0.2.0](https://github.com/ocavue/shadcn-schema/compare/v0.1.2...v0.2.0) (2025-12-14)
 
 
