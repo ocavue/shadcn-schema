@@ -1,7 +1,7 @@
 {
   "name": "shadcn-schema",
   "type": "module",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "packageManager": "pnpm@10.30.3",
   "description": "Reusable schema for the Shadcn registry",
   "author": "ocavue <ocavue@gmail.com>",
