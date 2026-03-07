@@ -1,4 +1,4 @@
-// Based on https://github.com/shadcn-ui/ui/blob/shadcn@3.8.5/packages/shadcn/src/registry/schema.ts
+// Based on https://github.com/shadcn-ui/ui/blob/shadcn@4.0.0/packages/shadcn/src/registry/schema.ts
 
 import { z } from 'zod'
 
@@ -137,6 +137,7 @@ export const registryItemFontSchema = z.object({
   variable: z.string(),
   weight: z.array(z.string()).optional(),
   subsets: z.array(z.string()).optional(),
+  selector: z.string().optional(),
 })
 
 // Common fields shared by all registry items.
