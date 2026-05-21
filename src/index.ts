@@ -1,4 +1,4 @@
-// Based on https://github.com/shadcn-ui/ui/blob/shadcn@4.0.0/packages/shadcn/src/registry/schema.ts
+// Based on https://github.com/shadcn-ui/ui/blob/shadcn@4.7.0/packages/shadcn/src/registry/schema.ts
 
 import { z } from 'zod'
 
@@ -39,7 +39,15 @@ export const rawConfigSchema = z
     }),
     iconLibrary: z.string().optional(),
     rtl: z.coerce.boolean().default(false).optional(),
-    menuColor: z.enum(['default', 'inverted']).default('default').optional(),
+    menuColor: z
+      .enum([
+        'default',
+        'inverted',
+        'default-translucent',
+        'inverted-translucent',
+      ])
+      .default('default')
+      .optional(),
     menuAccent: z.enum(['subtle', 'bold']).default('subtle').optional(),
     aliases: z.object({
       components: z.string(),
@@ -138,6 +146,7 @@ export const registryItemFontSchema = z.object({
   weight: z.array(z.string()).optional(),
   subsets: z.array(z.string()).optional(),
   selector: z.string().optional(),
+  dependency: z.string().optional(),
 })
 
 // Common fields shared by all registry items.
@@ -285,7 +294,12 @@ export const presetSchema = z.object({
   font: z.string(),
   rtl: z.coerce.boolean().default(false),
   menuAccent: z.enum(['subtle', 'bold']),
-  menuColor: z.enum(['default', 'inverted']),
+  menuColor: z.enum([
+    'default',
+    'inverted',
+    'default-translucent',
+    'inverted-translucent',
+  ]),
   radius: z.string(),
 })
 
