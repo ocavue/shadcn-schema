@@ -4,7 +4,7 @@
 
 A reusable schema for the [Shadcn registry](https://ui.shadcn.com/docs/registry/registry-json).
 
-It exports the same API as [`shadcn/schema`](https://npmx.dev/package-docs/shadcn/v/4.11.0), but is based on `zod` v4 instead of `zod` v3.
+It exports the same API as [`shadcn/schema`](https://npmx.dev/package-docs/shadcn/v/4.21.0), but is based on `zod` v4 instead of `zod` v3.
 
 ## Sponsors
 

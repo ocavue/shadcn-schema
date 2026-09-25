@@ -72,6 +72,19 @@ describe('registrySchema', () => {
     }
   })
 
+  it('should accept a registry with pagination', () => {
+    const result = registrySchema.safeParse({
+      name: 'acme',
+      homepage: 'https://acme.com',
+      items: [{ name: 'button', type: 'registry:ui' }],
+      pagination: { total: 10, offset: 0, limit: 1, hasMore: true },
+    })
+    expect(result.success).toBe(true)
+    if (result.success) {
+      expect(result.data.pagination?.hasMore).toBe(true)
+    }
+  })
+
   it('should reject a registry without items or include', () => {
     const result = registrySchema.safeParse({
       name: 'acme',
