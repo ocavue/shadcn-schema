@@ -125,13 +125,13 @@ export const registryItemCssVarsSchema = z.object({
 })
 
 // Recursive type for CSS properties that supports empty objects at any level.
-const cssValueSchema: z.ZodType<any> = z.lazy(() =>
-  z.union([
+const cssValueSchema: z.ZodType<any> = z.lazy(() => {
+  return z.union([
     z.string(),
     z.array(z.union([z.string(), z.record(z.string(), z.string())])),
     z.record(z.string(), cssValueSchema),
-  ]),
-)
+  ])
+})
 
 export const registryItemCssSchema = z.record(z.string(), cssValueSchema)
 
@@ -323,7 +323,7 @@ export const searchResultsSchema = z.object({
 
 // Legacy schema for getRegistriesIndex() backward compatibility.
 export const registriesIndexSchema = z.record(
-  z.string().regex(/^@[\dA-Za-z][\w-]*$/),
+  z.string().regex(/^@[\dA-Z][\w-]*$/i),
   z.string(),
 )
 
