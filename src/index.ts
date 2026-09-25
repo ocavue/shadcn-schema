@@ -1,4 +1,4 @@
-// Based on https://github.com/shadcn-ui/ui/blob/shadcn@4.11.0/packages/shadcn/src/registry/schema.ts
+// Based on https://github.com/shadcn-ui/ui/blob/shadcn@4.21.0/packages/shadcn/src/registry/schema.ts
 
 import { z } from 'zod'
 
@@ -193,12 +193,23 @@ export type RegistryBaseItem = Extract<RegistryItem, { type: 'registry:base' }>
 // Helper type for registry:font items specifically.
 export type RegistryFontItem = Extract<RegistryItem, { type: 'registry:font' }>
 
+// Pagination metadata returned by registries that implement dynamic search.
+// Its presence on a catalog response signals that the items are already
+// filtered and paginated server-side.
+export const registryPaginationSchema = z.object({
+  total: z.number(),
+  offset: z.number(),
+  limit: z.number(),
+  hasMore: z.boolean(),
+})
+
 const registryObjectSchema = z.object({
   $schema: z.string().optional(),
   name: z.string().optional(),
   homepage: z.string().optional(),
   include: z.array(z.string()).optional(),
   items: z.array(registryItemSchema).optional(),
+  pagination: registryPaginationSchema.optional(),
 })
 
 function requireItemsOrInclude(registry: {
@@ -289,6 +300,7 @@ export const registryResolvedItemsTreeSchema = registryItemCommonSchema
 
 export const searchResultItemSchema = z.object({
   name: z.string(),
+  title: z.string().optional(),
   type: z.string().optional(),
   description: z.string().optional(),
   registry: z.string(),
@@ -301,12 +313,7 @@ export const searchResultErrorSchema = z.object({
 })
 
 export const searchResultsSchema = z.object({
-  pagination: z.object({
-    total: z.number(),
-    offset: z.number(),
-    limit: z.number(),
-    hasMore: z.boolean(),
-  }),
+  pagination: registryPaginationSchema,
   items: z.array(searchResultItemSchema),
   // Registries that failed to load during the search. Only present when a
   // search tolerates per-registry failures (see searchRegistries'
