@@ -48,7 +48,7 @@
     "zod": "^4.6.5"
   },
   "devDependencies": {
-    "@ocavue/eslint-config": "^4.18.0",
+    "@ocavue/eslint-config": "^4.20.2",
     "@ocavue/tsconfig": "^0.7.1",
     "@types/node": "^24.0.0",
     "eslint": "^10.11.0",
